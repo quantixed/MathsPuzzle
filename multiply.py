@@ -7,6 +7,7 @@ print "What's your name?"
 name = raw_input("Name: ")
 print "OK,", name, "you will do 5 tests."
 print "Each test will be ten questions and you will have 1 minute for each!"
+bank = 0
 qright = 0
 
 for game in range(0,5):
@@ -30,15 +31,16 @@ for game in range(0,5):
                 print "  No, try again"
 
         curr = time.time()
-        timeleft = 60 - (curr - start)
+        timeleft = (60 + bank) - (curr - start)
         if (timeleft > 0):
-            print "  CORRECT!", "You have", int(timeleft % 60), "seconds left."
+            print "  CORRECT!", "You have", int(timeleft), "seconds left."
             qright = qright + 1
         else:
             print "  TIME'S UP! Sorry!"
             break
 
     if (game + 1) * 10 == qright:
+        bank = timeleft
         print "That was test", game + 1
         if (game + 1 < 5):
             print name, "YOU DID IT! Now onto test", game + 2

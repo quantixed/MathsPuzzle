@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
-# modified from Hangman recipe by Veysel Nantu
+# modified from https://code.activestate.com/recipes/578984-hangman/
 import random
 import time
 from time import sleep
@@ -51,7 +51,7 @@ c="""  _________
   |"""
 c1="\n  O"
 c2="\n \|/"
-c3="\n  |" 
+c3="\n  |"
 c4="\n / \ "
 cstr=""
 corrguess=""
@@ -96,7 +96,7 @@ while True:
             if 2 <=word.count(match) and x==match:
                 corrguess+=x
                 a+=word.count(match)
-                if reveal[letter]=="-": 
+                if reveal[letter]=="-":
                     reveal[letter]=x
                 print("In space {}.".format(letter+1))
                 sleep(0.7)
@@ -123,8 +123,8 @@ while True:
             print(cstr)
         if lives==3:
             cstr+=str(c1)       # WE START THE HANGMAN HERE :-)
-            print(cstr)      
-        if lives==2:          
+            print(cstr)
+        if lives==2:
             cstr+=str(c2)
             print(cstr)
         if lives==1:
